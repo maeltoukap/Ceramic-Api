@@ -14,7 +14,7 @@
             $exist = $req->rowCount();
 
             if($exist == 0){
-                $req = $db->prepare("INSERT INTO utilisateurs VALUES (null, ?, ?, ?)");
+                $req = $db->prepare("INSERT INTO utilisateurs(idUser, noms, telephone, password) VALUES (null, ?, ?, ?)");
             $req->execute(array($name, $phone, $pass));
 
             if ($req) {
@@ -35,7 +35,7 @@
 
     } catch (\Throwable $th) {
         $succes = 0;
-        $mg = "Error: ".$th->getMessage();
+        $msg = "Error: ".$th->getMessage();
     }
     echo json_encode([
         'data' =>[

@@ -28,7 +28,7 @@ try {
 
         if ($existScan == 0) {
             // INSERT INTO `scan` (`idScan`, `idUser`, `idCode`, `valider`) VALUES (NULL, '7', '2', '0');
-            $req = $db->prepare("INSERT INTO scanr(idUse, idCode) VALUES (?, ?)");
+            $req = $db->prepare("INSERT INTO scan(idUser, idCode) VALUES (?, ?)");
             $req->execute(array($idUser, json_encode($idCode)));
 
             if ($req) {
@@ -48,7 +48,7 @@ try {
     }
 } catch (\Throwable $th) {
     $succes = 0;
-    $mg = "Error: " . $th->getMessage();
+    $msg = "Error: " . $th->getMessage();
 }
 echo json_encode([
     'data' => [

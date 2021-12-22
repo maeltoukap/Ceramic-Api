@@ -31,7 +31,7 @@
 
     } catch (\Throwable $th) {
         $succes = 0;
-        $mg = "Error: ".$th->getMessage();
+        $msg = "Error: ".$th->getMessage();
     }
     echo json_encode([
         'data' =>[
